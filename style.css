@@ -1,0 +1,103 @@
+/* ===== 1. Variabel warna dan font ===== */
+:root {
+  --ink: #0E0E0E;
+  --paper: #F4F1EC;
+  --white: #FFFFFF;
+  --red: #C8102E;
+  --mute: #6B6B6B;
+  --line: #DAD5CC;
+  --head: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+  --body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* ===== 2. Dasar ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+body { font-family: var(--body); font-size: 1.0625rem; line-height: 1.65; color: var(--ink); background: var(--white); }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+ul, ol { list-style: none; }
+:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+.wrap { width: min(1100px, 100% - 40px); margin-inline: auto; }
+
+h1, h2, h3 { font-family: var(--head); line-height: 1.05; letter-spacing: .01em; text-transform: uppercase; }
+h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 28px; }
+h3 { font-size: 1.35rem; font-weight: 700; }
+p + p { margin-top: 14px; }
+
+.section { padding: 88px 0; }
+.alt { background: var(--paper); }
+.dark { background: var(--ink); color: var(--white); }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.note { margin-top: 24px; font-size: .95rem; color: var(--mute); }
+.dark .note { color: #A8A8A8; }
+
+/* ===== 3. Header ===== */
+.top { position: sticky; top: 0; z-index: 10; background: rgba(14,14,14,.95); backdrop-filter: blur(8px); }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; }
+.brand { font-family: var(--head); font-weight: 800; font-size: 1.3rem; text-decoration: none; color: var(--white); text-transform: uppercase; }
+.top nav { display: flex; gap: 20px; overflow-x: auto; }
+.top nav a { color: #CFCFCF; text-decoration: none; font-weight: 500; font-size: .95rem; white-space: nowrap; }
+.top nav a:hover { color: var(--white); }
+
+/* ===== 4. Hero ===== */
+.hero { background: var(--ink); color: var(--white); padding: 72px 0 88px; }
+.hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
+h1 { font-size: clamp(3.2rem, 8vw, 6.5rem); font-weight: 800; }
+.role { font-family: var(--head); font-size: 1.6rem; font-weight: 600; color: var(--red); margin: 14px 0 28px; text-transform: uppercase; }
+.tagline { font-size: 1.25rem; max-width: 34ch; }
+.trans { color: #A8A8A8; max-width: 44ch; margin: 12px 0 32px; }
+.hero-img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px; animation: rise .8s ease-out both; }
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+.btn { display: inline-block; padding: 14px 28px; background: var(--red); color: var(--white); font-weight: 600; text-decoration: none; border-radius: 4px; transition: transform .2s, background .2s; }
+.btn:hover { transform: translateY(-2px); background: #A50D26; }
+
+/* ===== 5. Tentang ===== */
+.facts div { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.facts dt { color: var(--mute); }
+.facts dd { font-weight: 600; text-align: right; }
+
+/* ===== 6. Perjalanan ===== */
+.timeline { border-left: 3px solid var(--red); padding-left: 32px; display: grid; gap: 36px; max-width: 760px; }
+.timeline p { color: #CFCFCF; margin-top: 8px; }
+
+/* ===== 7. Keahlian ===== */
+.skills li { display: grid; grid-template-columns: 1fr 1.6fr; gap: 24px; padding: 20px 0; border-top: 1px solid var(--line); }
+.skills li:last-child { border-bottom: 1px solid var(--line); }
+.skills b { font-family: var(--head); font-size: 1.5rem; text-transform: uppercase; }
+.skills span { color: var(--mute); }
+
+/* ===== 8. Pencapaian ===== */
+table { width: 100%; border-collapse: collapse; }
+td { padding: 12px 0; border-bottom: 1px solid var(--line); }
+td:first-child { width: 80px; font-family: var(--head); font-size: 1.3rem; font-weight: 700; color: var(--red); }
+.fight { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.fight b { display: block; font-family: var(--head); font-size: 1.35rem; text-transform: uppercase; }
+.fight span { color: var(--mute); }
+
+/* ===== 9. Statistik ===== */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 32px; }
+.stats b { display: block; font-family: var(--head); font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 800; line-height: 1; }
+.stats span { color: #A8A8A8; }
+
+/* ===== 10. Galeri ===== */
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.gallery img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 6px; transition: transform .3s; }
+.gallery img:hover { transform: scale(1.02); }
+
+/* ===== 11. Kontak dan footer ===== */
+.links { display: flex; flex-wrap: wrap; gap: 12px; }
+.links a { padding: 12px 22px; border: 2px solid var(--ink); border-radius: 999px; font-weight: 600; text-decoration: none; transition: background .2s, color .2s; }
+.links a:hover { background: var(--ink); color: var(--white); }
+.foot { background: var(--ink); color: #A8A8A8; padding: 32px 0; font-size: .92rem; }
+
+/* ===== 12. Responsif ===== */
+@media (max-width: 800px) {
+  .section { padding: 60px 0; }
+  .two, .hero-grid, .skills li { grid-template-columns: 1fr; gap: 24px; }
+  .skills li { gap: 6px; }
+  .hero-img { max-height: 460px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
